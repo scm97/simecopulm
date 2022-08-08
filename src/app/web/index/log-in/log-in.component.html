@@ -1,0 +1,37 @@
+<div>
+  <div class="form">
+  <mat-card css style=left:950px>
+  <form #LogInForm="ngForm" (ngSubmit)="onSubmit(LogInForm)">
+      <h1 align="center">Inicio de sesión</h1>
+      <p>
+        <mat-form-field appearance="fill">
+        
+          <mat-label>Nombre de usuario</mat-label>
+          <input matInput placeholder="Nombre" type="text" name="username" #username="ngModel" [(ngModel)]="model.username" required>
+          <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" name="password" #password="ngModel" [(ngModel)]="model.password" required minlength="4">
+          <!-- <label class="col s2">{{serverErrorMessages}}</label> -->
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+           
+        </mat-form-field>
+      </p>	    
+      <p>
+        <button mat-raised-button type="submit" css style=left:86.5px>Entrar</button>
+      </p> 
+      <p>
+      	<a class="form__link" href="./signup" id="linkCreateAccount" css style=padding-left:49.5px>Crear nuevo usuario</a>
+      </p>
+      <p>
+      	<a class="form__link" href="./" id="linkCreateAccount" css style=padding-left:30px>He olvidado la contraseña</a>
+      </p>
+  </form>
+  </mat-card>
+  </div>
+</div>

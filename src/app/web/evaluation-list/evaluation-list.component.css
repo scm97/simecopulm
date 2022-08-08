@@ -1,0 +1,54 @@
+.page {
+    min-height: 70%;
+}
+
+.fondo {
+    background-image: url("src\assets\design\eco_fondo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    padding-left: 50px;
+    padding-top: 10px;
+    display: inline-block;
+    position: relative;
+    font-size: xx-large;
+    text-transform: uppercase;
+  }
+  
+
+.mat-header-cell {
+    font-weight: bold;
+    font-size: medium;
+  }
+
+  .mat-table {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-content: center;
+  }
+
+  .scroll {
+    min-width: 80%;
+    height: 400px;
+    overflow: auto;
+  }
+
+  .return {
+    margin-left: 50px;
+    transform: scale(2);
+  }
+
+  .graph {
+    background-color: white; 
+    max-height: 450px; 
+    min-width: 90%;
+  }
+
+/*   mat-grid-tile {
+    align-items: center;
+    display: inline-flexbox;
+    orientation: column;
+  } */

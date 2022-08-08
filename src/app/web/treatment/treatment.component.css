@@ -1,0 +1,21 @@
+.page {
+    min-height: 70%;
+}
+
+.fondo {
+  background-image: url("src\assets\design\eco_fondo1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mat-card-header, .mat-card-content {
+  justify-content: center;
+  align-items: center;
+}
+
+.example {
+  padding: 1%;
+  background-color: rgba(120,176,218,255);
+  width: fit-content;
+  height: fit-content;
+}

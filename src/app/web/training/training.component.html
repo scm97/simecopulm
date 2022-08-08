@@ -1,0 +1,82 @@
+<div class="training" *ngIf="ready else intro">
+  <mat-grid-list cols="3">
+    <div style="height: fit-content">
+    <h2>Simulación de {{caseSelected.title}}</h2>
+    </div>
+    <mat-grid-tile>
+        <!-- <img class="image-style" alt="Imagen Actual" src="http://localhost:3000/{{impath}}">  -->
+        <video alt="Imagen Actual" width="690" height="520" style="margin-left: 20px;" preload autoplay loop muted src="http://localhost:3000/{{impath}}">
+          <source type="video/mp4"/>
+        </video>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="row">
+        <form [formGroup]="form" (ngSubmit)="saveEval()">
+          <h4>Selecciona los sucesos que observas:</h4>
+          <div *ngFor="let data of list; let i=index">
+            <label>
+              <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)"/>
+              {{data.name}}
+            </label>
+          </div>
+          <p></p><button mat-raised-button type="submit" [disabled]="sent">Guardar Evaluación</button>
+        </form>
+        </div>
+
+        <!-- <button mat-fab (click)="cambiaVideo()">Cambia video</button> -->
+          <!--  <button mat-fab (click)="selectEval()">Seleccionar imagen</button> -->
+  
+      </mat-grid-tile>
+      <mat-grid-tile>
+              <div class="row" align="center">
+                <div *ngIf="derrame === true">
+                  <form #diagnosticForm="ngForm" (ngSubmit)="treatmentD(diagnosticForm)">
+                    <h4>Introduzca un diagnóstico: </h4>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Diagnóstico</mat-label>
+                    <mat-select name=diagnostic [(ngModel)]="diagnostic" required>
+                        <mat-option *ngFor="let data of diagnostics" [value]="data.value">{{data.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <p></p><button mat-raised-button type="submit" class="treatment">Tratar Derrame Torácico</button>
+                </form>
+                </div>
+
+                <div *ngIf="neumo === true">
+                  <form #diagnosticForm="ngForm" (ngSubmit)="treatmentN(diagnosticForm)">
+                    <h4>Introduzca un diagnóstico: </h4>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Diagnóstico</mat-label>
+                    <mat-select name=diagnostic [(ngModel)]="diagnostic" required>
+                        <mat-option *ngFor="let data of diagnostics" [value]="data.value">{{data.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <p></p><button mat-raised-button type="submit" class="treatment">Tratar Neumotórax</button>
+                </form>
+                </div>
+
+                <div *ngIf="saved === true">
+                  <form #diagnosticForm="ngForm" (ngSubmit)="finishEval(diagnosticForm)">
+                    <h4>Introduzca un diagnóstico: </h4>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Diagnóstico</mat-label>
+                    <mat-select name=diagnostic [(ngModel)]="diagnostic" required>
+                        <mat-option *ngFor="let data of diagnostics" [value]="data.value">{{data.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <p></p><button mat-raised-button type="submit">Finalizar entrenamiento</button>
+                </form>
+                </div>
+            </div>
+      </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<ng-template class="intro" #intro>
+  <div class="row intro">
+    <button class="return" mat-icon-button (click)="goBack()"><mat-icon>keyboard_backspace</mat-icon></button>
+      <h1 align="center">Asegurese de tener la sonda encendida y conectada a la red local del sistema</h1><p></p>
+      <!-- <img class="image-style" src="../../../assets/design/posicion_cal.jpg">  -->
+      <button class="ready" mat-raised-button (click)="ready = true">Comenzar</button>
+  </div>
+</ng-template>

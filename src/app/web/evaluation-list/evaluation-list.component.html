@@ -1,0 +1,53 @@
+<div class="page fondo">
+    <button class="return" mat-icon-button (click)="goBack()"><mat-icon>keyboard_backspace</mat-icon></button>
+    <h1 align="center">Visualización de evaluaciones</h1>
+    <mat-grid-list cols="2" rows="5" rowHeight="fit" style="height: 550px" gutterSize="0px">                  
+        <mat-grid-tile colspan="1" rowspan="4"> 
+            <div class="scroll">
+            <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date"> Fecha </th>
+                <td mat-cell *matCellDef="let evaluation"> {{evaluation.updatedAt | date:'medium'}} </td>
+                </ng-container>
+            
+
+                <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef> Título </th>
+                <td mat-cell *matCellDef="let evaluation"> {{evaluation.case}} </td>
+                </ng-container>
+            
+
+                <ng-container matColumnDef="mark">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> Nota </th>
+                <td style="color:#4679AA; font-weight: bold;" mat-cell *matCellDef="let evaluation"> {{evaluation.mark}} </td>
+                </ng-container>   
+                
+                <ng-container matColumnDef="visualize">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let evaluation"> 
+                    <button mat-icon-button matTooltip="Ver evaluación" aria-label="icon-button" (click)="showEval(evaluation)"><mat-icon>remove_red_eye</mat-icon></button>
+                </td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+                <tr class="mat-row" *matNoDataRow>
+                <!-- <td class="mat-cell" colspan="4">No hay alumnos con el valor "{{input.value}}"</td> -->
+                </tr>
+            </table>
+            
+        </div> 
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="5">
+            <div class="graph" *ngIf="evaluations">
+                <canvas #lineCanvas></canvas>
+            </div>
+           </mat-grid-tile> 
+        <mat-grid-tile rowspan="1">
+            <h3 align="center">Nota media: <div style="color: green; margin-bottom: 40px;">{{averageMark}}</div></h3>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

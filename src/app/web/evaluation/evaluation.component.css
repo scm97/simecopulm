@@ -1,0 +1,29 @@
+.fondo {
+    background-color: #dae4ee;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+ .page{
+    min-height: 70%;
+  }
+
+  .match {
+     color: green;
+  }
+
+  .absent {
+     color:red;
+  }
+
+  h1{
+   display: inline-block;
+   position: relative;
+   font-size: xx-large;
+   font-weight: lighter;
+   text-transform: uppercase;
+ }
+
+ .evaluation {
+   margin-left: 10px;
+ }

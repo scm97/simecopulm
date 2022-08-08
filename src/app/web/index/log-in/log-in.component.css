@@ -1,0 +1,24 @@
+.mat-raised-button{
+    color: #4679AA;
+}
+
+.mat-form-field{
+    font-size: medium;
+    left:2%;
+    width:95%
+}
+
+.form {
+    display:flex;
+    flex-direction:column;
+    position: absolute;
+    left:-900px;
+    top:35px
+  }
+  
+
+  
+.link {
+    padding-top: 10px;
+    left:40%
+}

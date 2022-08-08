@@ -1,0 +1,40 @@
+<div class="row page fondo">
+    <div class="evaluation">
+    <h1 align="center">Resultado del caso {{selectedCase.title}}</h1>
+    <h3>Descripción:</h3> <p> {{selectedCase.description}}</p>
+    <h3>Sucesos acertados: 
+        <div *ngFor="let match of eval.patternsC"  style="color: green;">
+            <mat-checkbox class="match" [color]="true" [checked]="true">{{match+" ✓"}}</mat-checkbox>
+        </div>
+    </h3>
+    <h3>Sucesos no acertados:
+        <div *ngIf="eval.patternsI">
+        <div *ngFor="let abs of eval.patternsI"  style="color: red;">
+            <mat-checkbox class="absent" [color]="true" [checked]="true">{{abs+" X"}}</mat-checkbox>
+        </div>
+        <!-- <div *ngFor="let abs of absent2"  style="color: red;">
+            <mat-checkbox class="absent" [color]="true" [checked]="true">{{abs+" X"}}</mat-checkbox>
+        </div> -->
+    </div>
+    </h3>
+    <h3> Diagnóstico 
+        <div *ngIf="diagC" style="color: green;">
+             {{diagC+" ✓"}}
+        </div>
+        <div *ngIf="diagI" style="color: red">
+             {{diagI+" X"}}
+        </div>
+    </h3>
+    <div *ngIf="mark else eval_list">
+        <h3>Nota: {{mark}}/10</h3>
+    </div>
+    <ng-template #eval_list>
+    <div *ngIf="eval">
+        <h3>Nota: {{eval.mark}}/10</h3>
+    </div>
+    </ng-template>
+    <button mat-raised-button (click)="saveMark()">Volver</button>
+</div>
+</div>
+
+

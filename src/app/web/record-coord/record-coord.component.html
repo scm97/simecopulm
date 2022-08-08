@@ -1,0 +1,75 @@
+<div class="row>">
+<h1>Asignación de zonas</h1>
+<h2>Por favor, suba el clip de vídeo en el espacio habilitado para ello, 
+  de manera que corresponda a cada zona indicada en la imagen</h2>
+</div>
+
+<mat-grid-list cols="7" rowHeight="1:2">
+  <mat-grid-tile colspan="2">
+    <img class="image" src="../../../assets/design/zones.png" height="400px" width="400px">
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+  <div class="row">
+    <h3>Seleccionar clips lado DERECHO:</h3>
+    <h4>Zona 1 - Superior Anterior</h4>
+    <div *ngIf="!zone1" class="uploadfilecontainer"  (click)="fileInput1.click()" (onFilesDropped)="uploadFile($event,1)" >
+      <input hidden type="file" #fileInput1 accept="video/*" [disabled]="zone1" (change)="uploadFile($event,1)">
+    </div>
+    <h4>Zona 2 - Inferior Anterior</h4>
+    <div *ngIf="!zone2" class="uploadfilecontainer"  (click)="fileInput2.click()" (onFilesDropped)="uploadFile($event,2)" >
+      <input hidden type="file" #fileInput2 accept="video/*" [disabled]="zone2" (change)="uploadFile($event,2)">
+    </div>
+    <h4>Zona 3 - Lateral</h4>
+    <div *ngIf="!zone3" class="uploadfilecontainer"  (click)="fileInput3.click()" (onFilesDropped)="uploadFile($event,3)" >
+      <input hidden type="file" #fileInput3 accept="video/*" [disabled]="zone3" (change)="uploadFile($event,3)">
+    </div>
+
+    <div class="files-list" *ngFor="let file of filesD;let j= index">
+      <p> {{ file.name }} </p>
+<!--       <button type="button" class="delete-file" (click)="deleteAttachmentD(j)">
+        <img src="../../../assets/design/delete-button-svgrepo-com.svg">
+      </button> -->
+    </div>
+  </div>
+</mat-grid-tile>
+<mat-grid-tile colspan="2">
+  <div class="row">
+    <h3>Seleccionar clips lado IZQUIERDO:</h3>
+    <h4>Zona 1 - Superior Anterior</h4>
+    <div *ngIf="!zone4" class="uploadfilecontainer"  (click)="fileInput4.click()" (onFilesDropped)="uploadFile($event,4)" >
+      <input hidden type="file" #fileInput4 accept="video/*" [disabled]="zone4" (change)="uploadFile($event,4)">
+    </div>
+    <h4>Zona 2 - Inferior Anterior</h4>
+    <div *ngIf="!zone5" class="uploadfilecontainer"  (click)="fileInput5.click()" (onFilesDropped)="uploadFile($event,5)" >
+      <input hidden type="file" #fileInput5 accept="video/*" [disabled]="zone5" (change)="uploadFile($event,5)">
+    </div>
+    <h4>Zona 3 - Lateral</h4>
+    <div *ngIf="!zone6" class="uploadfilecontainer"  (click)="fileInput6.click()" (onFilesDropped)="uploadFile($event,6)" >
+      <input hidden type="file" #fileInput6 accept="video/*" [disabled]="zone6" (change)="uploadFile($event,6)">
+    </div>
+
+    <div class="files-list" *ngFor="let file of filesI;let z= index">
+      <p> {{ file.name }} </p>
+     <!--  <button type="button" class="delete-file" (click)="deleteAttachmentI(z)">
+        <img src="../../../assets/design/delete-button-svgrepo-com.svg">
+      </button> -->
+    </div> 
+  </div>
+</mat-grid-tile>
+<mat-grid-tile colspan="1">
+  <button mat-raised-button class="next" (click)="goNext()">Subir caso</button>
+</mat-grid-tile>
+</mat-grid-list>
+
+  <ng-template #finalMessage>
+    <div class="row">
+    <div class="col-3"></div>
+      <p class="text-style" >
+        Has terminado de subir el caso. Para continuar, pulse el botón.
+      </p>
+    </div>
+    <div class="row">
+    <div class="col-3"></div>
+      <button mat-raised-button (click)="goNext()">Siguiente</button>
+    </div>
+  </ng-template>

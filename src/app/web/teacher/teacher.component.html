@@ -1,0 +1,75 @@
+<div class="page fondo" align="center">
+    <mat-grid-list cols="1" rows="5" rowHeight="fit" style="height: 500px;" gutterSize="0px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-form-field class="buscador" appearance="fill">
+                <mat-label>Buscar alumno</mat-label>
+                <input matInput (keyup)="applyFilter($event)" #input>
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="3"> 
+            <section class="example-container mat-elevation-z8" tabindex="0">
+            <table  mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let student"> {{student.name}} </td>
+                </ng-container>
+            
+
+                <ng-container matColumnDef="surnames">
+                <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+                <td mat-cell *matCellDef="let student"> {{student.surnames}} </td>
+                </ng-container>
+            
+
+                <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                <td mat-cell *matCellDef="let student"> {{student.username}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="assign">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let student" >
+                        <button mat-icon-button matTooltip="Asignar Casos a {{student.username}}" aria-label="icon-button" (click)="assignCases(student)">
+                            <mat-icon class="icon">swap_horiz</mat-icon>
+                        </button> 
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="profile">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let student" >
+                        <button mat-icon-button matTooltip="Ver Evaluaciones de {{student.username}}" aria-label="icon-button" (click)="showEvaluations(student)">
+                            <mat-icon class="icon">accessibility_new </mat-icon>
+                        </button> 
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let student" >
+                        <button mat-icon-button matTooltip="Borrar Usuario {{student.username}}" aria-label="icon-button" (click)="openDialog(student)">
+                            <mat-icon class="icon">delete_outline</mat-icon>
+                        </button> 
+                    </td>
+                </ng-container>
+
+                
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+                <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No hay alumnos con el valor "{{input.value}}"</td>
+                </tr>
+            </table>
+            </section>
+            </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+                <button mat-raised-button routerLink="/upload-case" routerLinkActive="active">
+                    Subir Caso
+                </button>
+        </mat-grid-tile>  
+    </mat-grid-list>
+</div>  

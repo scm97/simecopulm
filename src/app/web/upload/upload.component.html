@@ -1,0 +1,78 @@
+<div class="page fondo">
+  <button class="return" mat-icon-button (click)="goBack()"><mat-icon>keyboard_backspace</mat-icon></button>
+  <h1>Creación de caso</h1>
+  <mat-grid-list cols="2" rowHeight="4:3">
+    <mat-grid-tile>
+    <mat-card class="style-card">
+    <div class="form">
+          <form #UploadCaseForm="ngForm" (ngSubmit)="onSubmit(UploadCaseForm)">
+              <div class="row">
+                  <mat-form-field appearance="fill" class="title-field">
+                      <mat-label>Título</mat-label>
+                      <input matInput placeholder="" type="text" name="title" #title="ngModel" [(ngModel)]="case_form.title" required>
+                  </mat-form-field>
+              </div>
+
+            <div class="row">
+                <mat-form-field appearance="fill" class="description-field">
+                    <mat-label>Descripción</mat-label>
+                    <textarea rows=10 matInput placeholder="" type="text" name="description" #description="ngModel" [(ngModel)]="case_form.description" required></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Tipo de caso</mat-label>
+                <mat-select name="type" #type="ngModel" [(ngModel)]="case_form.type" required>
+                    <mat-option value=0>Neumotórax</mat-option>
+                    <mat-option value=1>Derrame Torácico</mat-option>
+                    <mat-option value=2>Otro</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Diagnóstico</mat-label>
+                <mat-select name="diagnostic" #diagnostic="ngModel" [(ngModel)]="case_form.diagnostic" required>
+                    <mat-option *ngFor="let data of diagnostics" [value]="data.value">{{data.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="row">
+                <button mat-raised-button type="submit">Siguiente</button>
+            </div>
+          </form>  
+          </div>
+        </mat-card>
+  </mat-grid-tile>
+  
+  <mat-grid-tile>
+    <div class="row form">
+    <form [formGroup]="form" (ngSubmit)="checklist()">
+      <h4>Sucesos que se observan en el caso</h4>
+      <div *ngFor="let data of list; let i=index">
+        <label>
+          <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+          {{data.name}}
+        </label>
+      </div>
+      <p></p><button mat-raised-button class="patterns" type="submit">OK</button>
+    </form>
+  </div>
+    <div class="row">
+      <h3>Seleccionar imagen</h3>
+      <div class="uploadfilecontainer" (click)="imageInput.click()" appDragDrop (onFileDropped)="uploadImage($event)" >
+        <input hidden type="file" #imageInput accept="image/*" [disabled]="case_form.image" (change)="uploadImage($event)">
+      </div>
+
+      <div class="files-list" *ngFor="let image of images;let i= index">
+        <p> {{ image.name }} </p>
+        <button type="button" class="delete-file" (click)="deleteImage(i)">
+          <img src="../../../assets/design/delete-button-svgrepo-com.svg">
+        </button>
+     </div>
+    </div>
+  </mat-grid-tile>
+  </mat-grid-list>
+</div>

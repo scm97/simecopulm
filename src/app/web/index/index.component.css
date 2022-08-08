@@ -1,0 +1,42 @@
+ .fondo {
+    background-image: url("src\assets\design\eco_fondo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+ .formulario{
+    position: absolute;
+    width: max-content ;
+    height: max-content;
+    left: 1040px;
+    top: 75px;
+    color:transparent;
+    background: transparent;
+    border-radius: 10px;
+    padding: 15px;
+  }
+  
+  .page{
+    min-height: 75%;
+  }
+  
+ .example {
+    padding: 1%;
+    background-color: rgba(120,176,218,255);
+    width: fit-content;
+    height: fit-content;
+  }
+  
+  .mat-tab-link {
+    align-items: center;
+    display:flex;
+  }
+
+  .mat-card-header {
+    justify-content: center;
+  }
+
+  .card-style {
+    padding-top: 10%;
+    padding-left: 5%;
+  }

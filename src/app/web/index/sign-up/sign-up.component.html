@@ -1,0 +1,91 @@
+<div class="page fondo">
+    <button class="return" mat-icon-button (click)="goBack()"><mat-icon>keyboard_backspace</mat-icon></button>
+        <div class="form">
+            <mat-card class="example">   
+                <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Nombre" type="text" name="name" #name="ngModel" [(ngModel)]="selectedUser.name" required>
+                        <div *ngIf="signUpForm.submitted && !name.valid">
+                        	<label class="validation-message"></label>
+                        </div>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput placeholder="Apellidos" type="text" name="surnames" #surnames="ngModel" [(ngModel)]="selectedUser.surnames" required>
+                        <div *ngIf="signUpForm.submitted && !surnames.valid">
+                        	<label class="validation-message"></label>
+                        </div>
+                    </mat-form-field>
+
+                   <mat-form-field appearance="fill">
+                   	<mat-label>Usuario</mat-label>
+                       <input matInput placeholder="Nombre de usuario" type="text" name="username" #username="ngModel" [(ngModel)]="selectedUser.username" required>
+                        <div *ngIf="signUpForm.submitted && username.errors">
+                        	<div *ngIf="username.errors?.['required']" class="validation-message"></div>
+                        </div>
+                   </mat-form-field> 
+                   
+                    <mat-form-field appearance="fill">
+                    	<mat-label>Correo electrónico</mat-label>
+                       <input matInput placeholder="Correo electrónico" type="text" name="email" #email="ngModel" [(ngModel)]="selectedUser.email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+                        	<p css style=color:red;font-size:8px *ngIf="email.errors?.['pattern']">Introduzca un formato de correo electrónico adecuado</p>
+                    </mat-form-field>
+
+                    <div class="row">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput placeholder="Contraseña" id="password1" type="password" name="password" #password="ngModel" [(ngModel)]="selectedUser.password" minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+                        <p css style=color:red;font-size:8px *ngIf=validateP()>Las contraseñas han de coincidir</p>
+                        <p css style=color:red;font-size:8px *ngIf="password.errors?.['minlength']">La contraseña ha de tener al menos cuatro caracteres</p>
+                        <div *ngIf="signUpForm.submitted && password.errors">
+                            <label *ngIf="password.errors?.['required']" class="validation-message"></label>
+                            <label *ngIf="password.errors?.['minlength']" class="validation-message">Introduzca al menos 4 caracteres.</label>
+                            </div>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Repetir contraseña</mat-label>
+                       <input matInput placeholder="Repetir contraseña" id="password2" type="password" name="rep-password" [(ngModel)]="selectedUser.reppassword" required>
+                       <p css style=color:red;font-size:8px *ngIf=validateP()>Las contraseñas han de coincidir</p>
+                    </mat-form-field>
+                    </div>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Seleccionar rol</mat-label>
+                        <mat-select placeholder="Seleccionar rol" name="role" #role="ngModel" [(ngModel)]="selectedUser.role" required>
+                            <mat-option value= 0>Docente</mat-option>
+                            <mat-option value= 1>Alumno</mat-option>
+                        </mat-select>
+                       <!--  <div *ngIf="signUpForm.submitted && !role.valid">
+                        </div> -->
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Docente asignado</mat-label>
+                        <mat-select placeholder="Seleccionar docente" name="assignedTeacher" #assignedTeacher="ngModel" [(ngModel)]="selectedUser.assignedTeacher" [disabled]=validateRole()>
+                            <mat-option value=""  selected="true"></mat-option>
+                            <div *ngFor="let teacher of teachers">
+                            <mat-option value="{{teacher._id}}">{{teacher.name}} {{teacher.surnames}}</mat-option>
+                            </div>
+                        </mat-select>
+                    
+                        <div *ngIf="signUpForm.submitted && !role.valid">
+                        </div>
+                    </mat-form-field>
+                    <p class= css style=color:red;font-size:10px;padding-left:17px required>* Campo obligatorio</p>
+                    
+                    <button mat-raised-button type="submit" [disabled]=validate()>Registrarse</button>
+                </form>
+                <!--Sucess message-->
+                <div class="success" *ngIf="showSuccessMessage">
+                Usuario registrado con éxito
+                </div>
+               
+                <div class="alert" *ngIf="serverErrorMessages">
+                {{serverErrorMessages}}
+                </div>
+ 
+            </mat-card> 
+        </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="page fondo">
+<div *ngIf="entrenamiento else training">
+    <mat-grid-list cols="1" rowHeight="250px">
+        <mat-grid-tile>
+    <mat-card class="example">
+        <mat-card-header>
+            <mat-card-title>Modo Entrenamiento</mat-card-title> 
+        </mat-card-header>
+        <mat-card-content>
+        <p align="center" style="font-weight: bold;"><h3>Está tratando un {{tipo}}</h3>
+        </mat-card-content>
+    </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="finishTraining()">Finalizar Modo Entrenamiento</button>
+    </mat-grid-tile>
+    </mat-grid-list>
+    </div>
+
+</div>
+
+<ng-template #training>
+    <mat-grid-list cols="1" rowHeight="250px">
+        <mat-grid-tile>
+    <mat-card class="example">
+        <mat-card-header>
+            <mat-card-title>Tratamiento del caso {{selectedCase.title}}</mat-card-title> 
+        </mat-card-header>
+        <mat-card-content>
+        <p align="center" style="font-weight: bold;"><h3>{{bien}}{{mal}}</h3>
+        </mat-card-content>
+    </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="finishEval()">Finalizar Simulación</button>
+    </mat-grid-tile>
+    </mat-grid-list> 
+</ng-template>

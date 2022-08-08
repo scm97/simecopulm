@@ -1,0 +1,53 @@
+.base-color {
+    background-color: #4679AA;
+    color: white;
+  }
+
+  nav {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0; /* required */
+    z-index: 1000;
+  }
+
+  .icon {
+    padding: 0 14px;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .footer-style{
+    background-color: #4679AA;
+    color: white;
+    padding-top: 1px;
+    padding-left: 20px;
+    width: 100%;
+  }
+
+  .img_style{
+    width: 150px;
+    height: 50px;  
+  }
+
+  .dialog {
+    justify-content: space-evenly;
+  }
+
+  .logout {
+    background-color: rgba(120,176,218,255);
+    color: white;
+    font-size: medium;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+
+  .cancel {
+    font-size: medium;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+  }

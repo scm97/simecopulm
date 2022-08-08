@@ -1,0 +1,100 @@
+.mat-table {
+  width: 80%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-content: center;
+  border-radius: 10px;
+}
+
+.scroll {
+  min-width: 80%;
+  height: 450px;
+  overflow: auto;
+}
+
+.mat-header-cell {
+  justify-self: center;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.mat-card-image {
+  height: 200px;
+  width: 200px;
+}
+
+.boton {
+  align-self: center;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.mat-grid-tile {
+  flex-direction: column;
+}
+
+.buscador {
+  font-size: small;
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.dialog {
+  justify-content: space-evenly;
+}
+
+.neumo, .derrame {
+  background-color: rgba(120,176,218,255);
+    color: white;
+    font-size: larger;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+
+.eval {
+  font-size: x-large;
+  color: white;
+  background-color: #6F9EC7;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.fondo {
+  background-image: url("src\assets\design\eco_fondo1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page{
+  min-height: 70%;
+}

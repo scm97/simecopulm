@@ -1,0 +1,56 @@
+.fondo {
+  background-image: url("src\assets\design\eco_fondo1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page{
+  min-height: 70%;
+}
+
+.form {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top: 2%;
+  position: 40%;
+  left:40%;
+}
+
+.success{
+left:50%
+}
+.example {
+  position: absolute;
+  width: 39%;
+  height: 52%;
+  left: center;
+  top: 16%;
+  background: #F9F7F6;
+  border-radius: 78px;
+}
+
+.mat-form-field {
+  font-size: small;
+  padding-left:2%;
+  left:2.1%;
+  width:45%
+  
+
+  
+}
+.mat-raised-button{
+    color: #4679AA;
+    left:40%;
+    margin-top:-2%
+}
+
+.repetir {
+  margin-left: 20px;
+}
+
+.return {
+  margin-left: 50px;
+  margin-top: 50px;
+  transform: scale(2);
+}

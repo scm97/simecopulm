@@ -1,0 +1,109 @@
+<!-- <div class="page fondo">
+    <h1>Asignacion de casos</h1>
+<mat-grid-list cols="2">
+    <mat-grid-tile>
+        <mat-card class="example">
+            <div  class="table1" cdkDropList  
+            #assignedList="cdkDropList"
+            [cdkDropListConnectedTo]="[caseList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <table class="table" id="drag">
+            <tr>
+                <th>Título</th>
+
+                <th>Tipo</th>
+            </tr>
+            <tr *ngFor="let assignedCase of assignedCases" cdkDrag>
+                <td><span>{{assignedCase.title}}</span></td>
+                <td><span>{{assignedCase.type}}</span></td>
+            </tr>
+            </table>
+            </div>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="example">
+            <div  class="table2" cdkDropList  
+            #caseList="cdkDropList"
+            [cdkDropListConnectedTo]="[assignedList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+                <table class="table" id="drag">
+                        <tr>
+                            <th>Título</th>
+                            <th>Tipo</th>
+                        </tr>
+                        <tr *ngFor="let case of cases" cdkDrag>
+                            <td><span>{{case.title}}</span></td>
+                            <td><span>{{case.type}}</span></td>
+                            <td><span><button mat-button class="boton" (click)="editCase()">Editar Caso</button></span></td>
+                            <td><span><button type="button" class="delete-file" (click)="deleteCase()">
+                                            <img src="../../../assets/design/delete-button-svgrepo-com.svg">
+                                    </button></span></td>
+                        </tr>
+                </table>
+                </div>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+</div>
+
+ -->
+
+ <div class="page fondo">
+    <button class="return" mat-icon-button (click)="goBack()"><mat-icon>keyboard_backspace</mat-icon></button>
+     <h1>Asignación de casos de {{selectedUser.name}} {{selectedUser.surnames}}</h1>
+     <mat-grid-list cols="7" rowHeight="450px" gutterSize="0px">
+         <mat-grid-tile colspan="3">
+             <div class="column">
+            <h2 align="center">Casos disponibles</h2>
+            <mat-card class="example">
+                <div class="example-list">
+                    <table class="table" id="drag">
+                            <tr>
+                                <th>Título</th>
+                                <th>Tipo</th>
+                                <th>Diagnóstico</th>
+                            </tr>
+                            <tr *ngFor="let case of cases">
+                                <td><span>{{case.title}}</span></td>
+                                <td><span>{{case.type}}</span></td>
+                                <td><span>{{case.diagnostic}}</span></td>
+                                <td><span><button mat-button class="boton" (click)="assignCase(case)">Asignar Caso</button></span></td>
+                                <td><span><button mat-icon-button type="button" matTooltip="Borrar caso {{case.title}}" aria-label="icon-button" (click)="openDialog(case)">
+                                                <mat-icon class="delete">delete_outline</mat-icon>
+                                        </button></span></td>
+                            </tr>
+                    </table>
+                    </div>
+            </mat-card>
+        </div>
+         </mat-grid-tile>
+         <mat-grid-tile colspan="1">
+             <mat-icon class="icon">swap_horiz</mat-icon>
+         </mat-grid-tile>
+         <mat-grid-tile colspan="3">
+            <div class="column">
+                <h2 align="center">Casos asignados</h2>
+            <mat-card class="example">
+                <div class="example-list">
+                    <table class="table" id="drag">
+                            <tr>
+                                <th>Título</th>
+                                <th>Tipo</th>
+                                <th>Diagnóstico</th>
+                            </tr>
+                            <tr *ngFor="let case of assignedCases">
+                                <td><span>{{case.title}}</span></td>
+                                <td><span>{{case.type}}</span></td>
+                                <td><span>{{case.diagnostic}}</span></td>
+                                <td><span><button mat-button class="unasign" (click)="unassignCase(case)">Quitar Caso</button></span></td>
+                            </tr>
+                    </table>
+                    </div>
+            </mat-card>
+            </div>
+         </mat-grid-tile>
+     </mat-grid-list>
+ </div>

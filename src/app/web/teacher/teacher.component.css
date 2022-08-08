@@ -1,0 +1,75 @@
+ .fondo {
+    background-image: url("src\assets\design\eco_fondo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+ .page{
+    min-height: 70%;
+  }
+
+  .example-container {
+    height: fit-content;
+    overflow-y: auto;
+    border-radius: 20px;
+    position: relative;
+    width: 80%;
+  }
+
+.mat-table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  font-size: medium;
+  font-weight: bold;
+}
+
+
+.mat-raised-button{
+  font-size: x-large;
+  color: white;
+  background-color: #6F9EC7;
+  padding: auto;
+  height: 50px;
+}
+
+.icon {
+  padding: 0 14px;
+}
+
+
+  .mat-form-field-label {
+      color: black;
+  }
+  .mat-form-field-ripple {
+      background-color: #4679AA;
+  }
+  .mat-form-field-required-marker {
+      color: #4679AA;
+  }
+  .mat-input-element {
+      color: #4679AA;
+  }
+
+  .dialog {
+    justify-content: space-evenly;
+  }
+
+  .delete {
+    background-color: #EE1E1E;
+    color: white;
+    font-size: medium;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 30px;
+  }
+
+  .cancel {
+    font-size: medium;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+

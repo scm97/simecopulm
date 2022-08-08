@@ -1,0 +1,70 @@
+<nav>
+    <mat-toolbar class="base-color">
+        <span class="spacer">Simulador Ecografía Pulmonar Neonatal</span>
+        <div class="button-row" *ngIf="authService.isLoggedIn">
+          {{user.username}}
+        <button mat-icon-button aria-label="Example home icon" (click)="navigateHome()">
+            <mat-icon class="icon">home</mat-icon>
+        </button> 
+       <button mat-icon-button aria-label="icon-button account_circle" (click)="profile()">
+            <mat-icon class="icon">account_circle</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="icon-button power_settings_new" (click)="openDialogLogOut()">
+            <mat-icon class="icon">power_settings_new</mat-icon> 
+        </button> 
+        </div>
+      
+    </mat-toolbar>
+</nav>
+<router-outlet></router-outlet>
+
+<footer class="footer-style">
+      <div class="row footer">
+          <h6>Proyecto desarrollado en colaboración con:</h6>
+
+    <mat-grid-list cols="5" rowHeight="12:3" gutterSize="10px">
+        <mat-grid-tile>
+          <div class="img_style">
+            <a href="http://www.gbt.tfo.upm.es/" target="_blank">
+            <img src="../../assets/design/logoGBT.png" class="img-fluid" alt="">
+            </a>
+          </div>
+        </mat-grid-tile>
+  
+        <mat-grid-tile>
+          <div class="img_style">
+            <a href="http://www.ctb.upm.es/" target="_blank">
+            <img src="../../assets/design/logoCTB.jpg" class="img-fluid" alt="">
+            </a>
+          </div>
+        </mat-grid-tile>
+      
+        <mat-grid-tile>
+          <div class="img_style">
+            <a href="http://www.etsit.upm.es/" target="_blank">
+            <img src="../../assets/design/logoETSIT.png" class="img-fluid" alt="">
+            </a>
+          </div>
+        </mat-grid-tile>
+      
+        <mat-grid-tile>
+          <div class="img_style">
+            <a href="https://www.upm.es/" target="_blank">
+            <img src="../../assets/design/logoUPM.jpg" class="img-fluid" alt="">
+            </a>
+          </div>
+        </mat-grid-tile>
+       
+        <mat-grid-tile>
+          <div class="img_style">
+            <a href="http://www.idipaz.es/" target="_blank">
+            <img src="../../assets/design/IdiPAZlogo.jpg" class="img-fluid" alt="">
+            </a>
+          </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    </div>
+    
+  </footer>
+  
+  
